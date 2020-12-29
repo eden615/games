@@ -1,0 +1,676 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" href="../../static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="./css/game_header.css">
+    <link rel="stylesheet" type="text/css" href="./css/game_info.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+
+<script>
+
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('header').outerHeight(); 
+    $(window).scroll(function(event) {
+        didScroll = true;
+    });
+    setInterval(function() {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 0);
+    
+    function hasScrolled() {
+        var st = $(this).scrollTop();
+
+        if (Math.abs(lastScrollTop - st) <= delta) return;
+    
+        if (st > lastScrollTop && st > navbarHeight) {
+
+            // Scroll Down
+            if(st > 56){
+                $('#slide-menu-set').removeClass('slide-menu-set slide-menu-set-fixed').addClass('slide-menu-set slide-menu-set-fixed fix_on');
+            }
+        } else {
+
+            // Scroll up
+            if(st <= 56){
+                if (st + $(window).height() < $(document).height()) {
+                    $('#slide-menu-set').removeClass('slide-menu-set slide-menu-set-fixed fix_on').addClass('slide-menu-set slide-menu-set-fixed');
+                }
+            }
+        }
+        lastScrollTop = st;
+    }
+
+</script>
+
+<style>
+    body {
+      background-color: #171717 !important;
+    }
+
+    /* ----------------------------------------- */
+    /* Head */
+    /* ----------------------------------------- */
+    .game_animation .slide-menu-set .slide-menu-ani.ani_slide_hide {
+    -webkit-transform: translateY(-57px);
+    transform: translateY(-57px);
+    }
+
+    .game_animation .slide-menu-set .slide-menu-ani {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: 5200;
+    -webkit-transition: -webkit-transform 0.25s
+        cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    }
+
+    .slide-menu-set {
+    letter-spacing: -0.3px;
+    }
+
+    .slide-menu-set.slide-menu-set-fixed.fix_on {
+    top: 0;
+    }
+
+    .slide-menu-set.slide-menu-set-fixed {
+    position: fixed;
+    top: -80px;
+    left: 0;
+    right: 0;
+    height: 44px;
+    transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    z-index: 9999;
+    }
+
+    .slide-menu-set .slide-menu > div {
+    /* background: #2b2b2b; */
+    background: rgba(43, 43, 43, 0.96);
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    }
+
+    .slide-menu-set .slide-menu {
+    font-size: 16px;
+    line-height: 18px;
+    }
+
+    .slide-menu-set .slide-menu .header_gnb {
+    position: relative;
+    height: 56px;
+    margin-bottom: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 1000;
+    }
+
+    .slide-menu-set .slide-menu .header_gnb .tit_area {
+    text-align: center;
+    vertical-align: middle;
+    }
+
+    .slide-menu-set .slide-menu .header_gnb .tit_area .img_logo {
+    margin-top: 2px;
+    }
+
+    .slide-menu-set .slide-menu .header_gnb .tit_area .img_beta {
+    position: relative;
+    top: -42px;
+    right: -59px;
+    width: 35px;
+    height: 13px;
+    }
+
+    .slide-menu-set .slide-menu .header_gnb .tit_area .txt_log {
+    overflow: hidden;
+    font-size: 20px;
+    line-height: 54px;
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .slide-menu-set .slide-menu .header_gnb .tit_area .tit {
+    overflow: hidden;
+    font-size: 17px;
+    line-height: 24px;
+    color: #fff;
+    font-weight: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
+
+    /* 왼쪽 게임 정보 */
+    .header_gnb .tit_gamearth {
+    height: 56px;
+    }
+
+    .header_gnb .tit_gamearth .ico_game {
+    display: block;
+    float: left;
+    height: 28px;
+    margin: 14px 9px 0px 14px;
+    border-radius: 20%;
+    }
+
+    .header_gnb .tit_gamearth .txt_gamename {
+    left: 20px;
+    overflow: hidden;
+    height: 56px;
+    line-height: 56px;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: "Montserrat-Medium", sans-serif;
+    color: #666;
+    }
+
+    /* ----------------------------------------- */
+    /* 메인 네비게이션 */
+    /* ----------------------------------------- */
+    .slide-menu-set .slide-menu .header_gnb .tit_area .sub {
+    display: block;
+    overflow: hidden;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 19px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
+
+    .slide-menu-set .slide-menu .header_lnb {
+    overflow: hidden;
+    position: relative;
+    height: 45px;
+    margin-top: -1px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.08);
+    z-index: 700;
+    }
+
+    .slide-menu-set .slide-menu .header_lnb .list_lnb {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -ms-flex-pack: space-around;
+    }
+
+    .slide-menu-set .slide-menu .header_lnb .list_lnb li {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    box-flex: 1;
+    }
+
+    .slide-menu-set .slide-menu .header_lnb .list_lnb .tab {
+    display: block;
+    position: relative;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    line-height: 46px;
+    text-align: center;
+    }
+
+    .slide-menu-set .bx[aria-selected="true"] .tab {
+    color: #fff;
+    }
+
+    .slide-menu-set .bx[aria-selected="true"] .tab .menu {
+    border-bottom: 2px solid #fff;
+    }
+
+    .slide-menu-set .slide-menu .header_lnb .list_lnb .tab .menu {
+    display: inline-block;
+    position: relative;
+    height: 45px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    font-family: "Montserrat-Medium", sans-serif;
+    }
+
+    /* ----------------------------------------- */
+    /* banner */
+    /* ----------------------------------------- */
+    .gc__youtube {
+    overflow: hidden;
+    box-sizing: border-box;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-drag: none;
+    margin-top: 0px;
+    border-top: 0px solid #1f1f1f;
+    overflow: hidden;
+    position: relative;
+    height: 230px;
+    background-color: #1f1f1f;
+    text-align: center;
+    }
+
+    /* ----------------------------------------- */
+    /* game info */
+    /* ----------------------------------------- */
+    .gc__info {
+        padding: 20px 22px;
+    }
+
+    .gc__info .game_list_wrap {
+        padding: 14px 0px 8px 0px;
+    }
+    .gc__info .game_list {
+        padding: 0 15px;
+    }
+
+    .gc__info .game_la {
+        display: block;
+        position: relative;
+    }
+    .gc__info .gc__info-game-set {
+        position: relative;
+        width: 100%;
+        width: 100%;
+    }
+    .gc__info .gc__info-game-wrap {
+        width: 60px;
+    }
+
+    .gc__info .gc__info-game-wrap img {
+        border-radius: 5px;
+    }
+
+    .gc__info .game_mw::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .gc__info .gc__info-game-info {
+        position: absolute;
+        top: 6px;
+        left: 63px;
+        width: 100%;
+    }
+
+    .gc__info .game_tw {
+        padding-left: 10px;
+    }
+
+    .gc__info .game_ts {
+        font-size: 22px;
+        line-height: 22px;
+        color: #fff;
+        font-family: "Montserrat-Medium", sans-serif;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+        white-space: normal;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    .gc__info .game_o {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-top: 0px;
+        font-size: 14px;
+        line-height: 28px;
+        vertical-align: 0;
+        letter-spacing: -1px;
+        color: #666;
+    }
+
+    .gc__info .game_etc {
+    padding-left: 0px;
+    }
+
+    /* ----------------------------------------- */
+    /* download */
+    /* ----------------------------------------- */
+    .gc__download .gc__download-ul {
+    overflow: hidden;
+    padding-top: 16px;
+    }
+
+    .gc__download .right {
+    overflow: hidden;
+    float: right;
+    width: 110px;
+    height: 33px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    vertical-align: top;
+    background: #1f1f1f;
+    }
+
+    .gc__download .left {
+    overflow: hidden;
+    float: right;
+    width: 110px;
+    height: 33px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 0px;
+    box-sizing: border-box;
+    vertical-align: top;
+    background: #1f1f1f;
+    }
+
+    .gc__download .link {
+    display: block;
+    font-size: 13px;
+    line-height: 31px;
+    color: #fff;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+
+    /* ----------------------------------------- */
+    /* keyword */
+    /* ----------------------------------------- */
+    .gc__keyword-group {
+    overflow: hidden;
+    margin: 7px 0;
+    background: #1f1f1f;
+    }
+
+    .gc__keyword-group .gc__keyword-wrap {
+    padding: 20px 22px;
+    }
+
+    .gc__keyword-group .gc__keyword-ul {
+    font-size: 0;
+    text-align: center;
+    }
+
+    .gc__keyword-group .list {
+    display: inline-block;
+    height: 30px;
+    padding: 6px 2.5px;
+    vertical-align: top;
+    }
+
+    .gc__keyword-group .list[aria-selected="true"] .link {
+    color: #fff;
+    }
+
+    .gc__keyword-group .list[aria-selected="true"] .link {
+    background-color: #8452c7;
+    }
+
+    .gc__keyword-group .link {
+    display: block;
+    position: relative;
+    height: 100%;
+    padding: 2px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #2f2f2f;
+    }
+
+    /* ----------------------------------------- */
+    /* screenshot */
+    /* ----------------------------------------- */
+    .gc__screenshot {
+    overflow-x: visible;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    }
+    .gc__screenshot .gc__screenshot-slider {
+    position: relative;
+    }
+    .gc__screenshot .gc__screenshot-thumb .screenshot {
+    display: inline-block;
+    height: 218px;
+    vertical-align: top;
+    }
+
+    /* ----------------------------------------- */
+    /* desc */
+    /* ----------------------------------------- */
+    .gc__desc-set .desc {
+    color: #fff;
+    }
+
+    .gc__desc {
+    overflow: hidden;
+    background: #1f1f1f;
+    }
+
+    .gc__desc .gc__desc-set {
+    padding: 20px 22px;
+    font-size: 13px;
+    }
+
+    .gc__desc .gc__desc-ul li {
+    display: inline-block;
+    min-width: 100%;
+    margin: 0 -2px;
+    text-align: left;
+    }
+</style>
+
+<body >
+        
+<div id="gamearthWrap">
+
+    <header id="gameinfoHead">
+        
+        <div id="slide-menu-set" class="slide-menu-set slide-menu-set-fixed">
+            <div id="header" class="slide-menu slide-menu-ani">
+                <div>
+                    <div class="header_lnb">
+                        <div class="scroll_lnb">
+                            <ul class="list_lnb" role="tablist">
+                                <li class="bx" aria-selected="true" role="tab"><a href="javascript:;" class="tab"><span class="menu">GAME</span></a></li>
+                                <li class="bx" aria-selected="false" role="tab"><a href="javascript:;" class="tab"><span class="menu">TOKEN</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div id="wrap" class="slide-menu-set">
+            <div id="header" class="slide-menu slide-menu-ani">
+                <div>
+                    <div class="header_gnb">
+                        <h1 class="tit_gamearth">
+                            <img class="ico_game" alt="텍스트" src="../../assets/img/token/ico-tornado.png" />
+                            <span class="txt_gamename">TORNADO GAME</span>
+                        </h1>
+                    </div>
+                    
+                    <div class="header_lnb">
+                        <div class="scroll_lnb">
+                            <ul class="list_lnb" role="tablist">
+                                <li class="bx" aria-selected="true" role="tab"><a href="javascript:;" class="tab"><span class="menu">GAME</span></a></li>
+                                <li class="bx" aria-selected="false" role="tab"><a href="javascript:;" class="tab"><span class="menu">TOKEN</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="gc__set">
+        <section>
+            
+            <!-- youtube -->
+            <div class="gc__youtube">
+                <iframe class="gc__video" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/5vaMpY27Atk?modestbranding=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="gc__info">
+                <div class="gc__info-game-set">
+                    <div class="gc__info-game-wrap">
+                        <img alt="BIRD TORNADO" width="100%" src="../../assets/img/birdtornado/ico_game.png">
+                    </div>
+                    <div class="gc__info-game-info">
+                        <div class="game_tw">
+                            <div class="game_t">
+                                <span class="game_ts">BIRD TORNADO</span>
+                            </div>
+                            <div class="game_o">
+                                <span class="game_etc">ARCADE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gc__download">
+                    <ul class="gc__download-ul">
+                        <li class="right">
+                            <a class="link" href="#">
+                                <span class="text">Google Play</span>
+                            </a>
+                        </li>
+                        <li class="left">
+                            <a class="link" href="#">
+                                <span class="text">App Store</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="gc__keyword-group">
+                <div class="gc__keyword-wrap">
+                    <div class="gc__keyword-round">
+                        <ul class="gc__keyword-ul">
+                            <li class="list" role="tab" aria-selected="false">
+                                <a class="link" href="#">2D</a>
+                            </li>
+                            <li class="list" role="tab" aria-selected="false">
+                                <a class="link" href="#">difficulty</a>
+                            </li>
+                            <li class="list" role="tab" aria-selected="false">
+                                <a class="link" href="#">arcade</a>
+                            </li>
+                            <li class="list" role="tab" aria-selected="false">
+                                <a class="link" href="#">stage</a>
+                            </li>
+                            <li class="list" role="tab" aria-selected="false">
+                                <a class="link" href="#">shooting</a>
+                            </li>
+                            <li class="list" role="tab" aria-selected="false">
+                                <a class="link" href="#">Character</a>
+                            </li>
+                            <li class="list" role="tab" aria-selected="false">
+                                <a class="link" href="#">Cuteness</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gc__screenshot" >
+                <div class="gc__screenshot-slider">
+                    <div class="gc__screenshot-set">
+                        <div class="gc__screenshot-thumb">
+                            <img class="screenshot" data-expand-to="full-screenshot-0" src="../../assets/img/birdtornado/screenshot_1.png" alt="BIRDTORNADO" title="BIRDTORNADO" itemprop="screenshot" tabindex="0">
+                            <img class="screenshot" data-expand-to="full-screenshot-1" src="../../assets/img/birdtornado/screenshot_2.png" alt="BIRDTORNADO" title="BIRDTORNADO" itemprop="screenshot" tabindex="0">
+                            <img class="screenshot" data-expand-to="full-screenshot-2" src="../../assets/img/birdtornado/screenshot_3.png" alt="BIRDTORNADO" title="BIRDTORNADO" itemprop="screenshot" tabindex="0">
+                            <img class="screenshot" data-expand-to="full-screenshot-3" src="../../assets/img/birdtornado/screenshot_4.png" alt="BIRDTORNADO" title="BIRDTORNADO" itemprop="screenshot" tabindex="0">
+                            <img class="screenshot" data-expand-to="full-screenshot-4" src="../../assets/img/birdtornado/screenshot_5.png" alt="BIRDTORNADO" title="BIRDTORNADO" itemprop="screenshot" tabindex="0">
+                            <img class="screenshot" data-expand-to="full-screenshot-5" src="../../assets/img/birdtornado/screenshot_6.png" alt="BIRDTORNADO" title="BIRDTORNADO" itemprop="screenshot" tabindex="0">
+                            <img class="screenshot" data-expand-to="full-screenshot-6" src="../../assets/img/birdtornado/screenshot_7.png" alt="BIRDTORNADO" title="BIRDTORNADO" itemprop="screenshot" tabindex="0">
+                            <img class="screenshot" data-expand-to="full-screenshot-7" src="../../assets/img/birdtornado/screenshot_8.png" alt="BIRDTORNADO" title="BIRDTORNADO" itemprop="screenshot" tabindex="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gc__desc">
+                <div class="gc__desc-set">
+                    <ul class="gc__desc-ul">
+                        <li>
+                                ■ BirdTornado Launch event!<br />
+                                * Thanks for installing BirdTornado. Free 500TD gift for all users who install BirdTornado<br />
+                                * 20.12.29~21.1.31, UTC+9<br /><br />
+
+                                ■ Launching Promotion!<br />
+                                * Get Cute & Charming BirdTornado emoticons for Free!<br />
+                                * Link : https://stipop.io/<br /><br />
+
+                                The First Chapter of Blockchain game platform WEMIX, “BirdTornado” is an exciting & challenging Shooting game! Play & Earn TORNADO for free!<br /><br />
+
+                                ■ ‘for WEMIX’ Intro<br />
+                                WEMIX is a brand new model of blockchain game platform created by Wemade Tree.<br />
+                                * Official WEMIX Homepage : https://wemixnetwork.com/<br />
+                                * Official WEMIX Wallet App : https://play.google.com/store/apps/details?id=com.wemadetree.wemixwallet<br />
+
+                                ■ BirdTornado Intro<br />
+                                1. Casual Shooting Game<br />
+                                : It takes only a few seconds to learn how to play. Easy control for anyone to play! Let’s start playing now!<br />
+                                2. Daily JACKPOT!<br />
+                                : Chance to win Roulette Jackpot! 10 Roulette chances to win tons of TORNADO Every Day!<br />
+                                3. More Characters, More Bird Monsters<br />
+                                : Various Bird monsters with eccentric expressions, and the cute-tiny hunters chasing them!<br />
+                                : Collect hunters, enhance your weapon and challenge difficult stages - even Boss mode!<br />
+                                4. Be the Best Hunter!<br />
+                                : Compete with hunters all around the world, and become the Best!<br /><br />
+
+                                ■ Official BirdTornado Community<br />
+                                * Get the latest news here!<br />
+                                * Telegram Channel : https://t.me/WemixNetworkAnnounce<br />
+                                * Telegram Chat Group : https://t.me/WemixNetworkENG<br />
+                                * Twitter : https : //twitter.com/WemixNetwork<br />
+                                * Facebook : https : //www.facebook.com/WEMIXBlockchain<br />
+                                * Facebook Game : https://www.facebook.com/WEMIXGames<br /><br />
+
+                                ■ Service notice<br />
+                                * Business e-mail : help_bird@wemixgames.com<br />
+                                * Address : 6 EU TONG SEN STREET #11-10W THE CENTRAL SINGAPORE (059817)<br />
+                                * Business license number : 201903432D<br />
+                                * Terms of Service : http://che.wemixnetwork.net/bird/noti/termsOfUse.pdf<br />
+                                * Privacy policy : http://che.wemixnetwork.net/bird/noti/privacyPolicy.pdf<br /><br />
+
+                                ※ Important Note : BirdTornado is a client game that does not separately store game data. Please save game data regularly through game ‘Setting’ - ‘Game Save’. Unsaved data will not be backed up.<br />
+                                ※ Inquiry : For any inquiries regarding BirdTornado, please submit in English. Currently languages other than English are not available.<br /><br />
+
+                                ■ Smartphone App access authority<br />
+                                BirdTornado requests the following permissions for service provision:<br />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <a href="#" class="btn_pageup hide" title="맨위로 이동">
+        <span class="img_top">TOP</span>
+    </a>
+
+</body>
+</html>
