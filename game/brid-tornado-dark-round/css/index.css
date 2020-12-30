@@ -216,7 +216,7 @@ body {
 /* game info */
 /* ----------------------------------------- */
 .gc__info {
-  padding: 23px 25px;
+  padding: 27px 25px 23px 25px;
 }
 
 .gc__info .game_list_wrap {
