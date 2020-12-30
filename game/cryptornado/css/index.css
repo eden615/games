@@ -408,7 +408,7 @@ body {
 
 .gc__screenshot .gc__screenshot-thumb .screenshot {
   display: inline-block;
-  height: 170px;
+  height: 300px;
   vertical-align: top;
   border-radius: 12px;
   margin-right: 10px;
