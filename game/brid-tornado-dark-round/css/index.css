@@ -1,5 +1,5 @@
 body {
-  background-color: #171717 !important;
+  background-color: #1f1f1f !important;
 }
 
 /* ----------------------------------------- */
@@ -216,12 +216,13 @@ body {
 /* game info */
 /* ----------------------------------------- */
 .gc__info {
-  padding: 20px 22px;
+  padding: 23px 25px;
 }
 
 .gc__info .game_list_wrap {
   padding: 14px 0px 8px 0px;
 }
+
 .gc__info .game_list {
   padding: 0 15px;
 }
@@ -230,13 +231,16 @@ body {
   display: block;
   position: relative;
 }
+
 .gc__info .gc__info-game-set {
   position: relative;
   width: 100%;
   width: 100%;
 }
+
 .gc__info .gc__info-game-wrap {
-  width: 60px;
+  width: 70px;
+  height: 70px;
 }
 
 .gc__info .gc__info-game-wrap img {
@@ -256,13 +260,9 @@ body {
 
 .gc__info .gc__info-game-info {
   position: absolute;
-  top: 6px;
-  left: 63px;
+  top: 2px;
+  left: 95px;
   width: 100%;
-}
-
-.gc__info .game_tw {
-  padding-left: 10px;
 }
 
 .gc__info .game_ts {
@@ -308,10 +308,10 @@ body {
   float: right;
   width: 110px;
   height: 33px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #31bf63;
+  background: #31bf63;
   box-sizing: border-box;
   vertical-align: top;
-  background: #1f1f1f;
   border-radius: 0 5px 5px 0;
 }
 
@@ -320,11 +320,12 @@ body {
   float: right;
   width: 110px;
   height: 33px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #31bf63;
+  background: #31bf63;
+  border-right: 1px solid #009836 !important;
   border-right: 0px;
   box-sizing: border-box;
   vertical-align: top;
-  background: #1f1f1f;
   border-radius: 5px 0 0 5px;
 }
 
@@ -332,7 +333,8 @@ body {
   display: block;
   font-size: 13px;
   line-height: 31px;
-  color: #fff;
+  color: #000;
+  font-family: "Montserrat-Medium", sans-serif;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -343,12 +345,11 @@ body {
 /* ----------------------------------------- */
 .gc__keyword-group {
   overflow: hidden;
-  margin: 7px 0;
-  background: #1f1f1f;
+  margin: 7px 0 20px 0;
 }
 
 .gc__keyword-group .gc__keyword-wrap {
-  padding: 20px 22px;
+  padding: 0 25px 13px 25px;
 }
 
 .gc__keyword-group .gc__keyword-ul {
@@ -399,17 +400,18 @@ body {
 
 .gc__screenshot .gc__screenshot-thumb .screenshot {
   display: inline-block;
-  height: 192px;
+  height: 170px;
   vertical-align: top;
-  margin-right: 5px;
+  border-radius: 12px;
+  margin-right: 10px;
 }
 
 .gc__screenshot .gc__screenshot-thumb .screenshot:first-child {
-  margin-left: 0;
+  margin-left: 22px;
 }
 
 .gc__screenshot .gc__screenshot-thumb .screenshot:last-child {
-  margin-right: 0;
+  margin-right: 22px;
 }
 
 /* ----------------------------------------- */
@@ -421,17 +423,15 @@ body {
 
 .gc__desc {
   overflow: hidden;
-  background: #1f1f1f;
 }
 
 .gc__desc .gc__desc-set {
-  padding: 20px 22px;
+  padding: 23px 25px;
   font-size: 13px;
 }
 
 .gc__desc .gc__desc-ul li {
   display: inline-block;
   min-width: 100%;
-  margin: 0 -2px;
   text-align: left;
 }
