@@ -207,7 +207,7 @@ body {
   border-top: 0px solid #1f1f1f;
   overflow: hidden;
   position: relative;
-  height: 230px;
+  height: 210px;
   background-color: #1f1f1f;
   text-align: center;
 }
@@ -397,7 +397,7 @@ body {
 }
 .gc__screenshot .gc__screenshot-thumb .screenshot {
   display: inline-block;
-  height: 218px;
+  height: 192px;
   vertical-align: top;
 }
 
