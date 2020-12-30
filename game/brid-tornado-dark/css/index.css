@@ -240,7 +240,7 @@ body {
 }
 
 .gc__info .gc__info-game-wrap img {
-  border-radius: 5px;
+  border-radius: 12px;
 }
 
 .gc__info .game_mw::after {
@@ -343,7 +343,7 @@ body {
 /* ----------------------------------------- */
 .gc__keyword-group {
   overflow: hidden;
-  margin: 7px 0;
+  margin: 7px 0 20px 0;
   background: #1f1f1f;
 }
 
@@ -392,13 +392,25 @@ body {
   white-space: nowrap;
   width: 100%;
 }
+
 .gc__screenshot .gc__screenshot-slider {
   position: relative;
 }
+
 .gc__screenshot .gc__screenshot-thumb .screenshot {
   display: inline-block;
   height: 192px;
   vertical-align: top;
+  border-radius: 12px;
+  margin-right: 10px;
+}
+
+.gc__screenshot .gc__screenshot-thumb .screenshot:first-child {
+  margin-left: 22px;
+}
+
+.gc__screenshot .gc__screenshot-thumb .screenshot:last-child {
+  margin-right: 22px;
 }
 
 /* ----------------------------------------- */
