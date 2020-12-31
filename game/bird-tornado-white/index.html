@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover"
+    />
+    <link rel="stylesheet" type="text/css" href="../../static/css/common.css" />
+  </head>
+
+  <style>
+    body {
+      background-color: #f5f5f5;
+    }
+
+    /* ----------------------------------------- */
+    /* banner */
+    /* ----------------------------------------- */
+    .gc__youtube {
+      overflow: hidden;
+      box-sizing: border-box;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-drag: none;
+      margin-top: 0px;
+      border-top: 0px solid #1f1f1f;
+      overflow: hidden;
+      position: relative;
+      height: 230px;
+      background-color: #1f1f1f;
+      text-align: center;
+    }
+
+    /* ----------------------------------------- */
+    /* game info */
+    /* ----------------------------------------- */
+    .gc__info {
+      padding: 30px 22px 20px 22px;
+    }
+
+    .gc__info .game_list_wrap {
+      padding: 14px 0px 8px 0px;
+    }
+
+    .gc__info .game_list {
+      padding: 0 15px;
+    }
+
+    .gc__info .game_la {
+      display: block;
+      position: relative;
+    }
+
+    .gc__info .gc__info-game-set {
+      position: relative;
+      width: 100%;
+      width: 100%;
+    }
+
+    .gc__info .gc__info-game-wrap {
+      width: 60px;
+    }
+
+    .gc__info .gc__info-game-wrap img {
+      border-radius: 3px;
+    }
+
+    .gc__info .game_mw::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .gc__info .gc__info-game-info {
+      position: absolute;
+      top: 8px;
+      left: 63px;
+    }
+
+    .gc__info .game_tw {
+      padding-left: 10px;
+    }
+
+    .gc__info .game_ts {
+      font-size: 22px;
+      line-height: 22px;
+      color: #000;
+      font-family: "Montserrat-Medium", sans-serif;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: keep-all;
+      white-space: normal;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    .gc__info .game_o {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-top: 0px;
+      font-size: 0.88rem;
+      line-height: 1.5rem;
+      vertical-align: 0;
+      letter-spacing: -1px;
+      color: #666;
+    }
+
+    .gc__info .game_etc {
+      padding-left: 0px;
+    }
+
+    /* ----------------------------------------- */
+    /* download */
+    /* ----------------------------------------- */
+    .gc__download .gc__download-ul {
+      overflow: hidden;
+      padding-top: 16px;
+    }
+
+    .gc__download .right {
+      overflow: hidden;
+      float: right;
+      width: calc(50% - 2px);
+      margin-left: 2px;
+      height: 35px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-sizing: border-box;
+      vertical-align: top;
+      background: #00b981;
+      border-radius: 30px;
+    }
+
+    .gc__download .left {
+      overflow: hidden;
+      float: right;
+      width: calc(50% - 2px);
+      margin-right: 2px;
+      height: 35px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 0px;
+      box-sizing: border-box;
+      vertical-align: top;
+      background: #00b981;
+      border-radius: 30px;
+    }
+
+    .gc__download .link {
+      display: block;
+      font-size: 13px;
+      line-height: 33px;
+      color: #fff;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ----------------------------------------- */
+    /* desc */
+    /* ----------------------------------------- */
+    .gc__desc {
+      overflow: hidden;
+      color: #444;
+    }
+
+    .gc__desc .gc__desc-set {
+      padding: 20px 26px;
+      font-size: 13px;
+      font-family: "Montserrat-Medium", sans-serif;
+    }
+
+    .gc__desc .gc__desc-ul li {
+      display: inline-block;
+      min-width: 100%;
+      margin: 0 -2px;
+      text-align: left;
+    }
+
+    .gc__desc-set .gc__desc-ul .detail_desc {
+      display: block;
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: #c45ac4;
+      text-align: center;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .gc__youtube {
+        height: 320px;
+      }
+
+      .gc__download .right {
+        width: auto;
+      }
+
+      .gc__download .right a {
+        padding: 0 40px;
+      }
+
+      .gc__download .left {
+        width: auto;
+      }
+
+      .gc__download .left a {
+        padding: 0 40px;
+      }
+    }
+  </style>
+
+  <body>
+    <main id="gc__set">
+      <section>
+        <!-- youtube -->
+        <div class="gc__youtube">
+          <iframe
+            class="gc__video"
+            type="text/html"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/5vaMpY27Atk?modestbranding=1&rel=0&showinfo=0"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="gc__info">
+          <div class="gc__info-game-set">
+            <div class="gc__info-game-wrap">
+              <img
+                alt="BIRD TORNADO"
+                width="100%"
+                src="../../assets/img/birdtornado/ico_game.png"
+              />
+            </div>
+            <div class="gc__info-game-info">
+              <div class="game_tw">
+                <div class="game_t">
+                  <span class="game_ts">BIRD TORNADO</span>
+                </div>
+                <div class="game_o">
+                  <span class="game_etc">Arcade</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gc__download">
+            <ul class="gc__download-ul">
+              <li class="right">
+                <a class="link" href="#">
+                  <span class="text">Google Play</span>
+                </a>
+              </li>
+              <li class="left">
+                <a class="link" href="#">
+                  <span class="text">App Store</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="gc__desc">
+          <div class="gc__desc-set">
+            <ul class="gc__desc-ul">
+              <li>
+                ■ BirdTornado Launch event!<br />
+                * Thanks for installing BirdTornado. Free 500TD gift for all
+                users who install BirdTornado<br />
+                * 20.12.29~21.1.31, UTC+9<br /><br />
+
+                ■ Launching Promotion!<br />
+                * Get Cute & Charming BirdTornado emoticons for Free!<br />
+                * Link : https://stipop.io/<br /><br />
+
+                The First Chapter of Blockchain game platform WEMIX,
+                “BirdTornado” is an exciting & challenging Shooting game! Play &
+                Earn TORNADO for free!<br /><br />
+
+                ■ ‘for WEMIX’ Intro<br />
+                WEMIX is a brand new model of blockchain game platform created
+                by Wemade Tree.<br />
+                * Official WEMIX Homepage : https://wemixnetwork.com/<br />
+                * Official WEMIX Wallet App :
+                https://play.google.com/store/apps/details?id=com.wemadetree.wemixwallet<br />
+
+                ■ BirdTornado Intro<br />
+                1. Casual Shooting Game<br />
+                : It takes only a few seconds to learn how to play. Easy control
+                for anyone to play! Let’s start playing now!<br />
+                2. Daily JACKPOT!<br />
+                : Chance to win Roulette Jackpot! 10 Roulette chances to win
+                tons of TORNADO Every Day!<br />
+                3. More Characters, More Bird Monsters<br />
+                : Various Bird monsters with eccentric expressions, and the
+                cute-tiny hunters chasing them!<br />
+                : Collect hunters, enhance your weapon and challenge difficult
+                stages - even Boss mode!<br />
+                4. Be the Best Hunter!<br />
+                : Compete with hunters all around the world, and become the
+                Best!<br /><br />
+
+                ■ Official BirdTornado Community<br />
+                * Get the latest news here!<br />
+                * Telegram Channel : https://t.me/WemixNetworkAnnounce<br />
+                * Telegram Chat Group : https://t.me/WemixNetworkENG<br />
+                * Twitter : https : //twitter.com/WemixNetwork<br />
+                * Facebook : https : //www.facebook.com/WEMIXBlockchain<br />
+                * Facebook Game : https://www.facebook.com/WEMIXGames<br /><br />
+
+                ■ Service notice<br />
+                * Business e-mail : help_bird@wemixgames.com<br />
+                * Address : 6 EU TONG SEN STREET #11-10W THE CENTRAL SINGAPORE
+                (059817)<br />
+                * Business license number : 201903432D<br />
+                * Terms of Service :
+                http://che.wemixnetwork.net/bird/noti/termsOfUse.pdf<br />
+                * Privacy policy :
+                http://che.wemixnetwork.net/bird/noti/privacyPolicy.pdf<br /><br />
+
+                ※ Important Note : BirdTornado is a client game that does not
+                separately store game data. Please save game data regularly
+                through game ‘Setting’ - ‘Game Save’. Unsaved data will not be
+                backed up.<br />
+                ※ Inquiry : For any inquiries regarding BirdTornado, please
+                submit in English. Currently languages other than English are
+                not available.<br /><br />
+
+                ■ Smartphone App access authority<br />
+                BirdTornado requests the following permissions for service
+                provision:<br />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -75,7 +75,11 @@ body {
   height: 100%;
   font-family: "Montserrat", sans-serif;
   -webkit-text-size-adjust: none;
+  -ms-overflow-style: none;
   letter-spacing: -0.02em;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 input:checked[type="checkbox"] {
   background-color: #666;
@@ -180,15 +184,15 @@ input[type="date"] {
   -moz-appearance: textfield;
   border: 0 none;
 }
-#gamearthWrap {
+#wemade-tree {
   overflow: hidden;
 }
-#gamearthHead {
-  max-width: 1280px;
+#wtHead {
+  max-width: 1180px;
   margin: 0 auto;
 }
 #gc__set {
-  max-width: 1280px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 .color_red {
